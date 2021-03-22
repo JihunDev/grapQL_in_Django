@@ -139,7 +139,8 @@ class UpdateMovie(graphene.Mutation):
                 return UpdateMovie(ok=False, movie=None)
               actors.append(actor)
             movie_instance.title=input.title
-            movie_instance.year=input.yearce.save()
+            movie_instance.year=input.year
+            movie_instance.save();
             movie_instance.actors.set(actors)
             return UpdateMovie(ok=ok, movie=movie_instance)
         return UpdateMovie(ok=ok, movie=None)
